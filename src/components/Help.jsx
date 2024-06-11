@@ -13,7 +13,7 @@ const Help = () => {
         <span>/clear - clear the terminal</span>
         <span>/about - About Me</span>
         <span>/education - Education</span>
-        <span>/Projects - Projects</span>
+        <span>/projects - Projects</span>
         <span>/contact - Contact Me</span>
       </div>
     </div>
