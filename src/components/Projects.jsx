@@ -3,7 +3,7 @@ import info from "../data/data";
 
 const Projects = () => {
   return (
-    <div className="p-5">
+    <div className="p-5 flex flex-col">
       <span className="text-cyan-300 text-xl ">Projects</span>
       <hr className=" border-dashed" />
       <div className=" py-2 flex gap-2 flex-col md:flex-row flex-wrap   ">
@@ -42,6 +42,17 @@ const Projects = () => {
           </div>
         ))}
       </div>
+      <span className=" text-center text-slate-500">
+        For More Projects visit My{" "}
+        <a
+          href="https://github.com/diveshdalvi"
+          rel="noopener"
+          target="_blank"
+          className=" underline"
+        >
+          Github Profile
+        </a>
+      </span>
     </div>
   );
 };
