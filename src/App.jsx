@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { Analytics } from "@vercel/analytics/react";
+import { Typewriter } from "react-simple-typewriter";
+
 import {
   FirstPage,
   AboutMe,
@@ -18,14 +20,6 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 const App = () => {
-  const [showPage, setShowPage] = useState(true);
-
-  const handleKey = () => {
-    setShowPage(true);
-  };
-  const closeWeb = () => {
-    window.close();
-  };
   const [commandValue, setCommandValue] = useState("");
 
   const [currentComponent, setCurrentComponent] = useState(null);
@@ -50,6 +44,7 @@ const App = () => {
   const handleCommand = () => {
     handleCurrentComponent(commandValue);
     setCommandValue("");
+    setIsTyping(true);
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -57,6 +52,18 @@ const App = () => {
       handleCommand();
     }
   };
+  const handleFocus = () => {
+    setIsTyping(false);
+  };
+
+  const handleBlur = () => {
+    if (commandValue === "") {
+      setIsTyping(true);
+    }
+  };
+
+  const [isTyping, setIsTyping] = useState(true);
+  const [blinkEffect, setBlinkEffect] = useState(true);
   return (
     <div className="bg-[#0C0C0C] min-h-screen font-jetbrains text-white overflow-hidden">
       <Analytics />
@@ -140,18 +147,38 @@ const App = () => {
 
             <div className=" font-jetbrains p-4 md:px-4 mt-8">
               <span className=" text-green-600 sm:text-lg text-xs">
-                Enter /help for press ? button for commands list
+                Enter /help or press ? button for commands list
               </span>
               <span className=" flex text-md mt-2 ">
-                <span className="text-pink-600">[divesh\portfolio]~$ </span>
+                <span className="text-pink-600 mr-4">[divesh\portfolio]~$ </span>
+                {isTyping ? (
+                  <Typewriter
+                    words={[
+                      "/about",
+                      "/education",
+                      "/contact",
+                      "/projects",
+                      "/help",
+                      "/clear",
+                    ]}
+                    loop={true}
+                    cursorBlinking={true}
+                  />
+                ) : null}
+
                 <input
                   type="text"
                   name=""
                   id=""
                   value={commandValue}
                   onKeyDown={handleKeyDown}
-                  onChange={(e) => setCommandValue(e.target.value)}
-                  className=" bg-transparent  ml-4 outline-none  text-blue-200"
+                  onChange={(e) => {
+                    setCommandValue(e.target.value);
+                    setBlinkEffect(false);
+                  }}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  className="bg-transparent   outline-none  text-blue-200  border-white animate-blink"
                 />
               </span>
             </div>
