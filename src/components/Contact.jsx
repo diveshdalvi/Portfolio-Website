@@ -11,21 +11,21 @@ const Contact = () => {
   const [isEmailReadOnly, setIsEmailReadOnly] = useState(false);
   const [isFormSubmit, setIsFormSubmit] = useState(false);
   const ShowEmailBox = (e) => {
-    if (e.code === "Enter") {
+    if (e.code === "Enter" || e.keyCode === 13) {
       setShowEmail(true);
       setIsNameReadOnly(true);
     }
     console.log(e);
   };
   const ShowMsgBox = (e) => {
-    if (e.code === "Enter") {
+    if (e.code === "Enter" || e.keyCode === 13) {
       setShowMsg(true);
       setIsEmailReadOnly(true);
     }
     console.log(e);
   };
   const ShowSubmitMsg = (e) => {
-    if (e.code === "Enter") {
+    if (e.code === "Enter" || e.keyCode === 13) {
       setShowName(false);
       setShowEmail(false);
       setShowMsg(false);
