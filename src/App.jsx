@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
+import { Analytics } from "@vercel/analytics/react";
 import {
   FirstPage,
   AboutMe,
@@ -58,6 +59,7 @@ const App = () => {
   };
   return (
     <div className="bg-[#0C0C0C] min-h-screen font-jetbrains text-white overflow-hidden">
+      <Analytics />
       <div className=" flex justify-between flex-col h-full min-h-screen">
         <div>
           <div>
