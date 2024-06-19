@@ -44,7 +44,7 @@ const App = () => {
   const handleCommand = () => {
     handleCurrentComponent(commandValue);
     setCommandValue("");
-    setIsTyping(true);
+    
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {

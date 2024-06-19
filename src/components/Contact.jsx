@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Contact = () => {
   const [showName, setShowName] = useState(true);
@@ -10,19 +11,35 @@ const Contact = () => {
   const [isNameReadOnly, setIsNameReadOnly] = useState(false);
   const [isEmailReadOnly, setIsEmailReadOnly] = useState(false);
   const [isFormSubmit, setIsFormSubmit] = useState(false);
+
+  const sendData = async () => {
+    await axios
+      .post(import.meta.env.VITE_BACKENDURL, {
+        name: userName,
+        email: userEmail,
+        message: userMsg,
+      })
+      .then(() => {
+        console.log("Email sent Successfully");
+      })
+      .catch(() => {
+        console.log("Error ala bhai");
+      });
+  };
+
   const ShowEmailBox = (e) => {
     if (e.code === "Enter" || e.keyCode === 13) {
       setShowEmail(true);
       setIsNameReadOnly(true);
     }
-    console.log(e);
+    // console.log(e);
   };
   const ShowMsgBox = (e) => {
     if (e.code === "Enter" || e.keyCode === 13) {
       setShowMsg(true);
       setIsEmailReadOnly(true);
     }
-    console.log(e);
+    // console.log(e);
   };
   const ShowSubmitMsg = (e) => {
     if (e.code === "Enter" || e.keyCode === 13) {
@@ -30,6 +47,7 @@ const Contact = () => {
       setShowEmail(false);
       setShowMsg(false);
       setIsFormSubmit(true);
+      sendData();
     }
   };
   return (
