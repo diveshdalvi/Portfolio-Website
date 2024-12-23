@@ -63,7 +63,7 @@ const Contact = () => {
               id="namebox"
               onChange={(e) => setUserName(e.target.value)}
               onKeyDown={(e) => ShowEmailBox(e)}
-              className=" bg-transparent outline-none  text-pink-400"
+              className=" bg-transparent outline-none  text-pink-400 selection:bg-transparent active:bg-transparent"
             />
           </span>
         )}
@@ -77,7 +77,7 @@ const Contact = () => {
               readOnly={isEmailReadOnly}
               onChange={(e) => setUserEmail(e.target.value)}
               onKeyDown={(e) => ShowMsgBox(e)}
-              className=" bg-transparent outline-none  text-green-400"
+              className=" bg-transparent outline-none  text-green-400 active:bg-transparent"
             />
           </span>
         )}
@@ -91,7 +91,7 @@ const Contact = () => {
               value={userMsg}
               onChange={(e) => setUserMsg(e.target.value)}
               onKeyDown={(e) => ShowSubmitMsg(e)}
-              className=" bg-transparent outline-none  text-blue-400"
+              className=" bg-transparent outline-none  text-blue-400 active:bg-transparent"
             />
           </span>
         )}

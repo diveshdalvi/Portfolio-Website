@@ -1,21 +1,20 @@
 const info = {
-  about: `I'm Divesh Krishna Dalvi, a dedicated IT enthusiast currently pursuing a Diploma in
-IT at Government Polytechnic Mumbai. My passion lies in web and Android
-development, and I thrive on continuously expanding my skill set. I'm known for my
-problem-solving abilities and always strive to find the most efficient approach to
-tasks. With hands-on experience, I've successfully completed two Android app
-projects, showcasing my practical expertise. I'm a driven individual who's eager to
-learn, grow, and contribute to the world of technology.`,
+  about: `I'm Divesh Krishna Dalvi. Currently pursuing my bachelor's degree B.E in Artificial intelligence & Data science from N.Y.S.S Datta meghe college of engineering, I completed my Diploma in Information Technology from Government Polytechnic Mumbai. I have expertise in MERN stack and Android Development. I always try to learn new technologies and improve my knowledge.`,
   education: {
     SSC: {
       school: "GV Khade Vidyalay Shahapur",
       year: 2021,
       percentage: "89.80%",
     },
-    Diploma: {
+    "Diploma in Information Technology": {
       college: "Government Polytechnic Mumbai",
       year: 2024,
-      percentage: "Pursuring",
+      percentage: "84.58%",
+    },
+    "B.E. in Artificial Intelligence & Data Science": {
+      college: "Datta Meghe College of Engineering",
+      year: 2027,
+      percentage: "Pursuing",
     },
   },
   Projects: {

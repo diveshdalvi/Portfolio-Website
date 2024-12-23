@@ -3,22 +3,24 @@ import info from "../data/data";
 const Education = () => {
   return (
     <div className=" p-5 flex gap-5 flex-col md:flex-row ">
-      <div className=" md:border-r  border-white border-dotted pr-5 pb-3">
-        <span className="text-3xl font-VT323">SSC</span>
-        <div className=" flex flex-col">
-          <span>School - {info.education.SSC.school}</span>
-          <span>Year - {info.education.SSC.year}</span>
-          <span>Percentage - {info.education.SSC.percentage}</span>
-        </div>
-      </div>
-      <div>
-        <span className="text-3xl font-VT323">Diploma</span>
-        <div className=" flex flex-col">
-          <span>College - {info.education.Diploma.college}</span>
-          <span>Year - {info.education.Diploma.year}</span>
-          <span>{info.education.Diploma.percentage}</span>
-        </div>
-      </div>
+      {
+        Object.keys(info.education).map((key) => {
+          return (
+            <div key={key} className=" p-5 font-jetbrains border-dotted border-2  shadow-lg">
+              <h2 className=" text-2xl font-bold text-lime-400">{key}</h2>
+              <h3 className=" text-xl font-semibold text-purple-500">
+                {info.education[key].school || info.education[key].college}
+              </h3>
+              <h4 className=" text-lg font-semibold">
+                Year - {info.education[key].year}
+              </h4>
+              <h4 className=" text-lg font-semibold">
+                Percentage - {info.education[key].percentage}
+              </h4>
+            </div>
+          );
+        })
+      }
     </div>
   );
 };
